@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Users</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #search-results {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ccc;
+            max-width: 200px;
+        }
+    
+        #search-results li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+    
+        #search-results li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <input type="text" id="keyword" placeholder="Search for users..." />
+        <ul id="search-results" style="display:none;"></ul>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#keyword').on('keyup', function() {
+                var keyword = $(this).val();
+                if (keyword.length > 2) { // Start searching after 3 characters
+                    $.ajax({
+                        url: '/search',
+                        type: 'GET',
+                        data: { keyword: keyword },
+                        success: function(users) {
+                            var results = $('#search-results');
+                            results.empty().show();
+                            if (users.length > 0) {
+                                users.forEach(function(user) {
+                                    results.append('<li>' + user.username + '</li>');
+                                });
+                            } else {
+                                results.append('<li>No users found</li>');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching search results:', error);
+                        }
+                    });
+                } else {
+                    $('#search-results').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Dữ Liệu</title>
+</head>
+<body>
+    <div class="div1">
+        <a href="#" id="clickableLink">hello</a> <!-- Dữ liệu: "aaaaaa" -->
+    </div>
+    <div class="div2">
+        <p id="targetData1"></p>
+        <img id="targetImage" src="" alt="Ảnh mô tả">
+    </div>
+
+    <script>
+        document.getElementById('clickableLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+
+            // Dữ liệu từ div1 (ví dụ: chuỗi "aaaaaa" và URL ảnh)
+            var data1 = "aaaaaa";
+            var data2 = "https://example.com/image.jpg";
+
+            // Gọi hàm để chuyển dữ liệu sang div2
+            sendDataToDiv2(data1, data2);
+        });
+
+        function sendDataToDiv2(data1, data2) {
+            // Hiển thị dữ liệu 1 trong thẻ p
+            document.getElementById('targetData1').textContent = data1;
+
+            // Hiển thị dữ liệu 2 trong thẻ img
+            document.getElementById('targetImage').src = data2;
+        }
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+    layout:decorate="~{_layout}">
+
+<head>
+    <title>Trang cá nhân</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:inline="javascript">
+        function loadContent(tab) {
+            var userId = /*[[${userChosen.id}]]*/ 'defaultId';
+            $.get(`/profile/profileTab/${userId}`, { tab: tab }, function (data) {
+                $('#content').html(data);
+            });
+        }
+    </script>
+    
+</head>
+
+<body>
+    <main layout:fragment="content">
+        <!-- Scroll to top start -->
+        <div class="scroll-top not-visible">
+            <i class="bi bi-finger-index"></i>
+        </div>
+        <!-- Scroll to Top End -->
+
+        <!-- footer area start -->
+        <footer class="d-none d-lg-block">
+            <div class="footer-area reveal-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="footer-wrapper">
+                                <div class="footer-card position-relative">
+                                    <div class="friends-search">
+                                        <form class="search-box">
+                                            <input type="text" placeholder="Search Your Friends" class="search-field">
+                                            <button class="search-btn"><i class="flaticon-search"></i></button>
+                                        </form>
+                                    </div>
+                                    <div class="friend-search-list">
+                                        <div class="frnd-search-title">
+                                            <button class="frnd-search-icon"><i class="flaticon-settings"></i></button>
+                                            <p>search friends</p>
+                                            <button class="close-btn" data-close="friend-search-list"><i
+                                                    class="flaticon-cross-out"></i></button>
+                                        </div>
+                                        <div class="frnd-search-inner custom-scroll">
+                                            <ul>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-1.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author">Jon Wilime</h6>
+                                                        <p>Many desktop publishing</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-2.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
+                                                        <button class="add-frnd">add friend</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-3.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Mili Raoulin</a></h6>
+                                                        <button class="add-frnd">add friend</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-4.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Jon Wilime</a></h6>
+                                                        <button class="add-frnd">10 mutual friends</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Robart faul</a></h6>
+                                                        <button class="add-frnd">12 mutual friends</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-3.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Mili Raoulin</a></h6>
+                                                        <button class="add-frnd">add friend</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-4.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Jon Wilime</a></h6>
+                                                        <button class="add-frnd">10 mutual friends</button>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center profile-active">
+                                                    <!-- profile picture end -->
+                                                    <div class="profile-thumb active">
+                                                        <a href="#">
+                                                            <figure class="profile-thumb-small">
+                                                                <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                                    alt="profile picture">
+                                                            </figure>
+                                                        </a>
+                                                    </div>
+                                                    <!-- profile picture end -->
+
+                                                    <div class="posted-author">
+                                                        <h6 class="author"><a href="profile.html">Robart faul</a></h6>
+                                                        <button class="add-frnd">12 mutual friends</button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-small mb-0 active-profile-wrapper">
+                                    <div class="active-profiles-wrapper">
+                                        <div class="active-profile-carousel slick-row-20 slick-arrow-style">
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-1.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-1.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-2.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-3.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-4.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-1.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-6.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-7.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-8.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-9.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-10.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+
+                                            <!-- profile picture end -->
+                                            <div class="single-slide">
+                                                <div class="profile-thumb active profile-active">
+                                                    <a href="javascript:void(0)">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-11.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!-- profile picture end -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer-card position-relative">
+                                    <div class="live-chat-inner">
+                                        <div class="chat-text-field">
+                                            <textarea class="live-chat-field custom-scroll"
+                                                placeholder="Text Message"></textarea>
+                                            <button class="chat-message-send" type="submit" value="submit">
+                                                <img src="../../user/assets/images/icons/plane.png" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="chat-output-box">
+                                            <div class="live-chat-title">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb active">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-15.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+                                                <div class="posted-author">
+                                                    <h6 class="author"><a href="profile.html">Robart Marloyan</a></h6>
+                                                    <span class="active-pro">active now</span>
+                                                </div>
+                                                <div class="live-chat-settings ml-auto">
+                                                    <button class="chat-settings"><i
+                                                            class="flaticon-settings"></i></button>
+                                                    <button class="close-btn" data-close="chat-output-box"><i
+                                                            class="flaticon-cross-out"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="message-list-inner">
+                                                <ul class="message-list custom-scroll">
+                                                    <li class="text-friends">
+                                                        <p>Many desktop publishing packages and web page editors now use
+                                                            Lorem Ipsum as their default model text</p>
+                                                        <div class="message-time">10 minute ago</div>
+                                                    </li>
+                                                    <li class="text-author">
+                                                        <p>Many desktop publishing packages and web page editors</p>
+                                                        <div class="message-time">5 minute ago</div>
+                                                    </li>
+                                                    <li class="text-friends">
+                                                        <p>packages and web page editors </p>
+                                                        <div class="message-time">2 minute ago</div>
+                                                    </li>
+                                                    <li class="text-friends">
+                                                        <p>Many desktop publishing packages and web page editors now use
+                                                            Lorem Ipsum as their default model text</p>
+                                                        <div class="message-time">10 minute ago</div>
+                                                    </li>
+                                                    <li class="text-author">
+                                                        <p>Many desktop publishing packages and web page editors</p>
+                                                        <div class="message-time">5 minute ago</div>
+                                                    </li>
+                                                    <li class="text-friends">
+                                                        <p>packages and web page editors </p>
+                                                        <div class="message-time">2 minute ago</div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer area end -->
+        <div class="main-wrapper">
+            <div class="profile-banner-large bg-img" data-bg="../../user/assets/images/banner/profile-banner.jpg">
+            </div>
+            <div class="profile-menu-area bg-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="profile-picture-box">
+                                <div class="profile-picture">
+                                    <a class="gallery-selector"
+                                        th:href="@{|/../../user/assets/images/profile/${userChosen.avatar}|}">
+                                        <img width="270px" height="270px"
+                                            th:src="@{|/../../user/assets/images/profile/${userChosen.avatar}|}"
+                                            alt="profile picture">
+                                    </a>
+                                </div>
+
+                                <!-- <script>
+                                    const changeProfilePicture = document.getElementById('changeProfilePicture');
+                                    const fileInput = document.getElementById('fileInput');
+                                    const avatarForm = document.getElementById('avatarForm');
+
+                                    changeProfilePicture.addEventListener('click', function (event) {
+                                        event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+                                        fileInput.click(); // Kích hoạt sự kiện click trên input file
+                                    });
+
+                                    fileInput.addEventListener('change', function () {
+                                        avatarForm.submit(); // Gửi biểu mẫu khi có sự thay đổi file
+                                    });
+                                </script> -->
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 offset-lg-1">
+                            <div class="profile-menu-wrapper">
+                                <div class="main-menu-inner header-top-navigation">
+                                    <nav>
+                                        <ul class="main-menu">
+                                            <li class="active"><a th:href="@{|/profile/${userChosen.id}|}">Timeline</a>
+                                            </li>
+                                            <li><a href="#" onclick="loadContent('about')">Thông tin</a></li>
+                                            <li><a href="#" onclick="loadContent('photos')">Hình ảnh</a></li>
+                                            <li><a href="#" onclick="loadContent('friends')">Bạn bè</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- button -->
+                        <!-- ko phải khác với ko khác, này xét true false, nếu đúng thì hiện div này -->
+                        <div th:if="${currentlyUser != userChosen}" class="col-lg-3 col-md-3 d-none d-md-block">
+                            <div style="justify-content: space-evenly;" class="profile-edit-panel d-flex">
+                                <div th:if="${checkIfExistInListFriendRequest == 'pending'} ">
+                                    <form th:action="@{/add-friend/cancel-request}" method="post">
+                                        <input type="hidden" name="requesterId" th:value="${currentlyUser.id}">
+                                        <input type="hidden" name="addresseeId" th:value="${userChosen.id}">
+                                        <!-- <input type="hidden" name="friendRequestId" th:value="${param.friendRequestId}"> -->
+                                        <button type="submit" class="edit-btn btn btn-primary mr-5">Hủy lời mời</button>
+                                    </form>
+                                </div>
+
+                                <div th:if="${checkIfExistInListFriendRequest == null} ">
+                                    <form th:action="@{/add-friend/send-request}" method="post">
+                                        <input type="hidden" name="requesterId" th:value="${currentlyUser.id}">
+                                        <input type="hidden" name="addresseeId" th:value="${userChosen.id}">
+                                        <button type="submit" class="edit-btn btn btn-primary">Kết bạn</button>
+                                    </form>
+                                </div>
+                                <div th:if="${checkIfExistInListFriendRequest == 'accepted'} ">
+                                    <div style="justify-content:space-evenly;" class="profile-edit-panel">
+                                        <button class="edit-btn btn btn-primary" data-toggle="modal"
+                                            data-target="#confirmUnfriend">Bạn bè</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button th:if="${blockFunction}" class="edit-btn btn btn-primary"data-toggle="modal" data-target="#blockModal">Chặn</button>
+                                    <form th:action="@{/add-friend/block-and-unblock}" th:unless="${blockFunction}" method="post">
+                                        <input type="hidden" name="idUserBlocked" th:value="${userChosen.id}">
+                                        <button class="edit-btn btn btn-primary" type="submit">Bỏ Chặn</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <h1 th:text="${$blockFunction}"></h1>
+                        <!-- Sai thì hiện div này -->
+                        <div th:if="${currentlyUser == userChosen}" class="col-lg-3 col-md-3 d-none d-md-block">
+                            <div class="profile-edit-panel d-flex justify-content-center">
+                                <button class="edit-btn btn btn-primary" data-toggle="modal" data-target="#profileEditModal">Chỉnh sửa</button>
+                            </div>
+                        </div>
+                        <!-- button -->
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Start -->
+            <style>
+                .modal-dialog-centered {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 100vh;
+                }
+            </style>
+
+            <div class="modal fade" id="profileEditModal" tabindex="-1" role="dialog"
+                aria-labelledby="profileEditModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileEditModalLabel">Chỉnh sửa trang cá nhân</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Your form or content for editing profile goes here -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="username">Tên người dùng</label>
+                                    <input type="text" class="form-control" id="username"
+                                        placeholder="Nhập tên người dùng">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Nhập email">
+                                </div>
+                                <!-- Add more form fields as needed -->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm unfriend Modal starts -->
+            <div class="modal fade" id="confirmUnfriend" tabindex="-1" role="dialog"
+                aria-labelledby="profileEditModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="profileEditModalLabel">Bạn có chắc muốn hủy kết bạn với <span th:text="${userChosen.username}" class="text-danger"></span> ??</h5>
+                        </div>
+                        <div style="justify-content:space-around;" class="modal-footer d-flex">
+                            <form th:action="@{/add-friend/unfriend}" method="post">
+                                <input type="hidden" name="idUserHasBeenUnfriend" th:value="${userChosen.id}">
+                                <button style="background-color: green; color: white;"  class="btn p-2" type="submit">Xác nhận</button>
+                            </form>
+                            <button style="background-color: red; color: white;" class="btn p-2" type="button" data-dismiss="modal">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Confirm unfriend Modal ends -->
+            <!-- block friend modal starts -->
+            <div class="modal fade" id="blockModal" tabindex="-1" role="dialog"
+            aria-labelledby="profileEditModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileEditModalLabel">Bạn có chắc chắn muốn chặn <span th:text="${userChosen.username}" class="text-danger"></span> ??</h5>
+                    </div>
+                    <div style="justify-content:space-around;" class="modal-footer d-flex">
+                        <form th:action="@{/add-friend/block-and-unblock}" method="post">
+                            <input type="hidden" name="idUserBlocked" th:value="${userChosen.id}">
+                            <button style="background-color: green; color: white;"  class="btn p-2" type="submit">Xác nhận</button>
+                        </form>
+                        <button style="background-color: red; color: white;" class="btn p-2" type="button" data-dismiss="modal">Hủy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- block friend modal ends -->
+
+            <div class="container">
+                <section id="content">
+                    <div class="row">
+                        <div class="col-lg-3 order-2 order-lg-1">
+                            <aside class="widget-area profile-sidebar">
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title" th:text="${userChosen.username}">username</h4>
+                                    <div class="widget-body">
+                                        <div class="about-author">
+                                            <p th:text="${userChosen.bio}">bio</p>
+                                            <ul class="author-into-list">
+                                                <li><a href="#"><i class="bi bi-office-bag"></i>Graphic Designer</a>
+                                                </li>
+                                                <li><a href="#"><i class="bi bi-home"></i>Melbourne, Australia</a></li>
+                                                <li><a href="#"><i class="bi bi-location-pointer"></i>Pulshar,
+                                                        Melbourne</a></li>
+                                                <li><a href="#"><i class="bi bi-heart-beat"></i>Travel, Swimming</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title">Sweets Memories</h4>
+                                    <div class="widget-body">
+                                        <div class="sweet-galley img-gallery">
+                                            <div class="row row-5">
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-1.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-1.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-2.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-2.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-3.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-3.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-4.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-4.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-5.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-5.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-6.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-6.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-7.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-7.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-8.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-8.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="gallery-tem">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/gallery/gallery-9.jpg">
+                                                                <img src="../../user/assets/images/gallery/gallery-9.jpg"
+                                                                    alt="sweet memory">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title">page you may like</h4>
+                                    <div class="widget-body">
+                                        <ul class="like-page-list-wrapper">
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-33.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Travel The World</a></h3>
+                                                    <p class="list-subtitle"><a href="#">adventure</a></p>
+                                                </div>
+                                                <button class="like-button active">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-30.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Foodcort Nirala</a></h3>
+                                                    <p class="list-subtitle"><a href="#">food</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
+                                                    <p class="list-subtitle"><a href="#">drama</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-29.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Active Mind</a></h3>
+                                                    <p class="list-subtitle"><a href="#">fitness</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+                            </aside>
+                        </div>
+
+                        <div class="col-lg-6 order-1 order-lg-2">
+                            <!-- share box start -->
+                            <div class="card card-small">
+                                <div class="share-box-inner">
+                                    <!-- share content box start -->
+                                    <div class="share-content-box w-100">
+                                        <form class="share-text-box">
+                                            <textarea name="share" class="share-text-field" aria-disabled="true"
+                                                placeholder="Say Something" data-toggle="modal" data-target="#textbox"
+                                                id="email"></textarea>
+                                            <button class="btn-share" type="submit">share</button>
+                                        </form>
+                                    </div>
+                                    <!-- share content box end -->
+                                    <!-- Modal start -->
+                                    <div class="modal fade" id="textbox" aria-labelledby="textbox">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Share Your Mood</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body custom-scroll">
+                                                    <textarea name="share" class="share-field-big custom-scroll"
+                                                        placeholder="Say Something"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="post-share-btn"
+                                                        data-dismiss="modal">cancel</button>
+                                                    <button type="button" class="post-share-btn">post</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal end -->
+                                </div>
+                            </div>
+                            <!-- share box end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Kate Palson</a></h6>
+                                        <span class="post-time">35 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc">
+                                        AAAAAAAAAA
+                                    </p>
+                                    <div class="post-thumb-gallery img-gallery">
+                                        <div class="row no-gutters">
+                                            <div class="col-8">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="../../user/assets/images/post/post-large-2.jpg">
+                                                        <img src="../../user/assets/images/post/post-2.jpg"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/post/post-large-3.jpg">
+                                                                <img src="../../user/assets/images/post/post-3.jpg"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/post/post-large-4.jpg">
+                                                                <img src="../../user/assets/images/post/post-4.jpg"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <figure class="post-thumb">
+                                                            <a class="gallery-selector"
+                                                                href="../../user/assets/images/post/post-large-5.jpg">
+                                                                <img src="../../user/assets/images/post/post-5.jpg"
+                                                                    alt="post image">
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 207 people like this</span>
+                                            <strong>207</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>41</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>07</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
+                                        <span class="post-time">15 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        BBBBBBBBBBB
+                                    </p>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 201 people like this</span>
+                                            <strong>201</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>41</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>07</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-4.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">william henry</a></h6>
+                                        <span class="post-time">35 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc">
+                                        CCCCCCCCCCCCC
+                                    </p>
+                                    <div class="plyr__video-embed plyr-video">
+                                        <iframe src="https://www.youtube.com/embed/WeA7edXsU40"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 201 people like this</span>
+                                            <strong>201</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>41</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>07</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-8.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Mili Raoulin</a></h6>
+                                        <span class="post-time">50 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc">
+                                        DDDDDDDDDDDDD
+                                    </p>
+                                    <div class="post-thumb-gallery img-gallery">
+                                        <div class="row no-gutters">
+                                            <div class="col-6">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="../../user/assets/images/post/post-large-6.jpg">
+                                                        <img src="../../user/assets/images/post/post-6.jpg"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-6">
+                                                <figure class="post-thumb">
+                                                    <a class="gallery-selector"
+                                                        href="../../user/assets/images/post/post-large-7.jpg">
+                                                        <img src="../../user/assets/images/post/post-7.jpg"
+                                                            alt="post image">
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 230 people like this</span>
+                                            <strong>230</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>65</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>04</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-6.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Robart Faul</a></h6>
+                                        <span class="post-time">40 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        EEEEEEEEEEEEEEEEEE
+                                    </p>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 250 people like this</span>
+                                            <strong>250</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>80</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>10</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-2.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">merry watson</a></h6>
+                                        <span class="post-time">20 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc">
+                                        GGGGGGGGGG
+                                    </p>
+                                    <div class="post-thumb-gallery">
+                                        <figure class="post-thumb img-popup">
+                                            <a href="../../user/assets/images/post/post-large-1.jpg">
+                                                <img src="../../user/assets/images/post/post-1.jpg" alt="post image">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 201 people like this</span>
+                                            <strong>201</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>41</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>07</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+
+                            <!-- post status start -->
+                            <div class="card">
+                                <!-- post title start -->
+                                <div class="post-title d-flex align-items-center">
+                                    <!-- profile picture end -->
+                                    <div class="profile-thumb">
+                                        <a href="#">
+                                            <figure class="profile-thumb-middle">
+                                                <img src="../../user/assets/images/profile/profile-small-3.jpg"
+                                                    alt="profile picture">
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <!-- profile picture end -->
+
+                                    <div class="posted-author">
+                                        <h6 class="author"><a href="profile.html">Jon Wileyam</a></h6>
+                                        <span class="post-time">15 min ago</span>
+                                    </div>
+
+                                    <div class="post-settings-bar">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <div class="post-settings arrow-shape">
+                                            <ul>
+                                                <li><button>copy link to adda</button></li>
+                                                <li><button>edit post</button></li>
+                                                <li><button>embed adda</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- post title start -->
+                                <div class="post-content">
+                                    <p class="post-desc pb-0">
+                                        HHHHHHHHHHHHHHHHHHH
+                                    </p>
+                                    <div class="post-meta">
+                                        <button class="post-meta-like">
+                                            <i class="bi bi-heart-beat"></i>
+                                            <span>You and 204 people like this</span>
+                                            <strong>204</strong>
+                                        </button>
+                                        <ul class="comment-share-meta">
+                                            <li>
+                                                <button class="post-comment">
+                                                    <i class="bi bi-chat-bubble"></i>
+                                                    <span>41</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="post-share">
+                                                    <i class="bi bi-share"></i>
+                                                    <span>07</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- post status end -->
+                        </div>
+
+                        <div class="col-lg-3 order-3">
+                            <aside class="widget-area">
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title">Recent Notifications</h4>
+                                    <div class="widget-body">
+                                        <ul class="like-page-list-wrapper">
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-9.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Any one can join with us if you
+                                                            want</a></h3>
+                                                    <p class="list-subtitle">5 min ago</p>
+                                                </div>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-35.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Any one can join with us if you
+                                                            want</a></h3>
+                                                    <p class="list-subtitle">10 min ago</p>
+                                                </div>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-15.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Any one can join with us if you
+                                                            want</a></h3>
+                                                    <p class="list-subtitle">18 min ago</p>
+                                                </div>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-6.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Any one can join with us if you
+                                                            want</a></h3>
+                                                    <p class="list-subtitle">25 min ago</p>
+                                                </div>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-34.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Any one can join with us if you
+                                                            want</a></h3>
+                                                    <p class="list-subtitle">39 min ago</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title">Advertizement</h4>
+                                    <div class="widget-body">
+                                        <div class="add-thumb">
+                                            <a href="#">
+                                                <img src="../../user/assets/images/banner/advertise.jpg"
+                                                    alt="advertisement">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+
+                                <!-- widget single item start -->
+                                <div class="card widget-item">
+                                    <h4 class="widget-title">Friends Zone</h4>
+                                    <div class="widget-body">
+                                        <ul class="like-page-list-wrapper">
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-10.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">arfim bolt</a></h3>
+                                                    <p class="list-subtitle"><a href="#">10 mutual</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-2.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">marry wither</a></h3>
+                                                    <p class="list-subtitle"><a href="#">02 mutual</a></p>
+                                                </div>
+                                                <button class="like-button active">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-5.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Rolin Theitar</a></h3>
+                                                    <p class="list-subtitle"><a href="#">drama</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                            <li class="unorder-list">
+                                                <!-- profile picture end -->
+                                                <div class="profile-thumb">
+                                                    <a href="#">
+                                                        <figure class="profile-thumb-small">
+                                                            <img src="../../user/assets/images/profile/profile-small-14.jpg"
+                                                                alt="profile picture">
+                                                        </figure>
+                                                    </a>
+                                                </div>
+                                                <!-- profile picture end -->
+
+                                                <div class="unorder-list-info">
+                                                    <h3 class="list-title"><a href="#">Active Mind</a></h3>
+                                                    <p class="list-subtitle"><a href="#">fitness</a></p>
+                                                </div>
+                                                <button class="like-button">
+                                                    <img class="heart" src="../../user/assets/images/icons/heart.png"
+                                                        alt="">
+                                                    <img class="heart-color"
+                                                        src="../../user/assets/images/icons/heart-color.png" alt="">
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- widget single item end -->
+                            </aside>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{admin/adminIndex}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main layout:fragment="Admincontent">
+        <div class="card m-5">
+            <div class="NumberUser container">
+                <canvas id="NumberUser" width="500" height="400"></canvas>
+            </div>
+        </div>
+
+        <div class="card m-5">
+            <div class="NumberUser container">
+                <canvas id="NumberUserPerDay" width="500" height="400"></canvas>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var userCount = /*[[${listUser.size()}]]*/ 0;
+
+            var ctx = document.getElementById('NumberUser').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Users'],
+                    datasets: [{
+                        label: '# of Users',
+                        data: [userCount],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            /*]]>*/
+            
+        </script>
+    </main>
+    
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{admin/adminIndex}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main layout:fragment="Admincontent">
+        <div class="card m-5">
+            <div class="NumberUser container">
+                <canvas id="NumberUserPerDay" width="500" height="400"></canvas>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var sortedDates = /*[[${sortedDates}]]*/ [];
+            var sortedCounts = /*[[${sortedCounts}]]*/ [];
+
+            var labels = sortedDates.map(date => new Date(date).toLocaleDateString());
+            var data = sortedCounts;
+
+            var ctx = document.getElementById('NumberUserPerDay').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Số lượng truy cập theo ngày',
+                        data: data,
+                        backgroundColor: [
+                            'green'
+                        ],
+                        borderColor: [
+                            'green'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            /*]]>*/
+        </script>
+    </main>
+    
+</body>
+
+</html>
+
